@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="container-title">ADD CUSTOMERS</div>
+  <div class="input-field-wrapper">
+    <input type="text" [(ngModel)]="newCustomer" />
+    <button type="submit" (click)="addCustomer()">{{buttonText}}</button>
+  </div>
+  <div class="customer-list">
+    <ul *ngFor="let customer of customerList; let i = index">
+      <div class="list-items"  *ngIf="customer !== ''">
+        <li>{{ i+1 }} . {{ customer }}</li>
+        <button (click)="editCustomer(i)">Edit</button>
+        <button (click)="deleteCustomer(i)">Delete</button>
+      </div>
+    </ul>
+  </div>
+  <div class="delete-loc">
+    <button #deleteLocal (click)="deleteLoc()">Delete Local Storage</button>
+  </div>
+</div>

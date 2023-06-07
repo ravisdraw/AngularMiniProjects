@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="container-title">SEARCH CUSTOMER DETAILS</div>
+  <div class="input-field-wrapper">
+    <input type="text" [(ngModel)]="searchItem" />
+  </div>
+  <div class="customer-list">
+    <div class="table-container" *ngIf="searchCustomer().length > 0">
+      <table>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+        </tr>
+        <tr *ngFor="let customer of searchCustomer()">
+          <td>{{ customer.first_name }}</td>
+          <td>{{ customer.last_name }}</td>
+          <td>{{ customer.email }}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="no-result" *ngIf="searchCustomer().length === 0">
+      No Result Found!
+    </div>
+  </div>
+</div>
